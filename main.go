@@ -17,7 +17,8 @@ func f(t uint32, b, c, d uint32) uint32 {
 	case t < 40:
 		return b ^ c ^ d
 	case t < 60:
-		return (b&c)&(b&d) | (c & d)
+		// функйция большинства
+		return (b & c) | (b & d) | (c & d)
 	default:
 		return b ^ c ^ d
 	}
@@ -38,7 +39,7 @@ func k(t uint32) uint32 {
 
 // Функция хеширования
 // func MyOwnSha(message []byte) [20]byte {
-// 	return 0;
+
 // }
 
 func main() {

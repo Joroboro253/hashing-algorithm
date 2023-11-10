@@ -1,13 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // "fmt"
 
 var h0, h1, h2, h3, h4 uint32 = 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 0xC3D2E1F0
 
+// func for each round
 func f(t uint32, b, c, d uint32) uint32 {
-
+	switch {
+	case t < 20:
+		// функция выбора, ch (choice)
+		return (b & c) | ((^b) & d)
+	case t < 40:
+		return b ^ c ^ d
+	case t < 60:
+		return (b&c)&(b&d) | (c & d)
+	default:
+		return b ^ c ^ d
+	}
 }
 
 func k(t uint32) uint32 {
@@ -24,9 +37,9 @@ func k(t uint32) uint32 {
 }
 
 // Функция хеширования
-func sha(message []byte) [20]byte {
-
-}
+// func MyOwnSha(message []byte) [20]byte {
+// 	return 0;
+// }
 
 func main() {
 	message := "Your message here"

@@ -26,16 +26,19 @@ func TestCorrectSha(t *testing.T) {
 // Тест для демонстрирования количества времени
 func BenchmarkFunction1(b *testing.B) {
 	message := []byte("3464364363")
+	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
 		MyOwnSha(message)
 	}
+
 }
 
 // Тест для демонстрирования количества времени
 
 func BenchmarkFunction2(b *testing.B) {
 	message := []byte("3464364363")
+	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
 		hasher := sha1.New()

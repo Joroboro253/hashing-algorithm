@@ -23,7 +23,7 @@ func TestCorrectSha(t *testing.T) {
 	}
 }
 
-// Тест для демонстрирования количества времени
+// Бенчмарк демонстрирующий времени работы моей реализации алгоритма
 func BenchmarkFunction1(b *testing.B) {
 	message := []byte("3464364363")
 	b.ReportAllocs()
@@ -34,8 +34,7 @@ func BenchmarkFunction1(b *testing.B) {
 
 }
 
-// Тест для демонстрирования количества времени
-
+// Бенчмарк демонстрирующий времени работы алгоритма из библиотеки
 func BenchmarkFunction2(b *testing.B) {
 	message := []byte("3464364363")
 	b.ReportAllocs()

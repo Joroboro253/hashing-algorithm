@@ -75,6 +75,7 @@ func MyOwnSha(message []byte) [20]byte {
 	return digest
 }
 
+// input transformation
 func processBlock(a, b, c, d, e uint32, w [80]uint32) (uint32, uint32, uint32, uint32, uint32) {
 	aa, bb, cc, dd, ee := a, b, c, d, e
 	for i := 0; i < 80; i++ {

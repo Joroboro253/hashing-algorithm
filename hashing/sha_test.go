@@ -4,22 +4,19 @@ import (
 	"crypto/sha1"
 	"reflect"
 	"testing"
-	// "golang.org/x/text/message"
 )
 
+// Тест на правильность работы релизации алгоритма в сравнении с библиотечной реализацией
 func TestCorrectSha(t *testing.T) {
-	// Arrange
-	message := "sdfsdfsdfsdf"
-	// Заменить местами
-	expected := MyOwnSha([]byte(message))
-	// Act
+	message := "Hello world"
+	result := MyOwnSha([]byte(message))
 	hasher := sha1.New()
 	hasher.Write([]byte(message))
-	result := hasher.Sum(nil)
+	expected := hasher.Sum(nil)
 	// Assert
-	if !reflect.DeepEqual(expected, [20]byte(result)) {
+	if reflect.DeepEqual([20]byte(result), expected) {
 		t.Errorf("Realization of algorithm SHA-1 is wrong. Expect %x, but found %x",
-			expected, result)
+			result, expected)
 	}
 }
 

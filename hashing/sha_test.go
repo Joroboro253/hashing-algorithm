@@ -2,6 +2,8 @@ package hashing
 
 import (
 	"crypto/sha1"
+	"io/ioutil"
+	"os"
 	"reflect"
 	"testing"
 )
@@ -40,5 +42,35 @@ func BenchmarkFunction2(b *testing.B) {
 		hasher := sha1.New()
 		hasher.Write([]byte(message))
 		hasher.Sum(nil)
+	}
+}
+
+// Бенчмарк демонстрирующий времени работы алгоритма из библиотеки для изображения (состоит из нескольких блоков)
+func BenchmarkFunctionPhotoHashing(b *testing.B) {
+	imagePath := "../images/image for hashing.jpg"
+	imageBytes, err := ioutil.ReadFile(imagePath)
+	if err != nil {
+		os.Exit(1)
+	}
+	b.ReportAllocs()
+
+	for i := 0; i < b.N; i++ {
+		hasher := sha1.New()
+		hasher.Write([]byte(imageBytes))
+		hasher.Sum(nil)
+	}
+}
+
+// Бенчмарк демонстрирующий время работы моей реализации алгоритма для изображения (состоит из нескольких блоков)
+func BenchmarkFunctionPhotoHashing2(b *testing.B) {
+	imagePath := "../images/image for hashing.jpg"
+	imageBytes, err := ioutil.ReadFile(imagePath)
+	if err != nil {
+		os.Exit(1)
+	}
+	b.ReportAllocs()
+
+	for i := 0; i < b.N; i++ {
+		MyOwnSha([]byte(imageBytes))
 	}
 }

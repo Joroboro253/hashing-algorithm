@@ -23,7 +23,7 @@ func TestCorrectSha(t *testing.T) {
 }
 
 // Бенчмарк демонстрирующий времени работы моей реализации алгоритма
-func BenchmarkFunction1(b *testing.B) {
+func BenchmarkFunctionOfMyOwnAlgorithm(b *testing.B) {
 	message := []byte("3464364363")
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
@@ -32,7 +32,7 @@ func BenchmarkFunction1(b *testing.B) {
 }
 
 // Бенчмарк демонстрирующий времени работы алгоритма из библиотеки
-func BenchmarkFunction2(b *testing.B) {
+func BenchmarkFunctionLibraryAlgorithm(b *testing.B) {
 	message := []byte("3464364363")
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
@@ -43,7 +43,7 @@ func BenchmarkFunction2(b *testing.B) {
 }
 
 // Бенчмарк демонстрирующий время работы моей реализации алгоритма для изображения (состоит из нескольких блоков)
-func BenchmarkFunctionPhotoHashing2(b *testing.B) {
+func BenchmarkFunctionPhotoHashingOfMyOwnAlgorithm(b *testing.B) {
 	imagePath := "../images/image for hashing.jpg"
 	imageBytes, err := ioutil.ReadFile(imagePath)
 	if err != nil {
@@ -56,7 +56,7 @@ func BenchmarkFunctionPhotoHashing2(b *testing.B) {
 }
 
 // Бенчмарк демонстрирующий времени работы алгоритма из библиотеки для изображения (состоит из нескольких блоков)
-func BenchmarkFunctionPhotoHashing(b *testing.B) {
+func BenchmarkFunctionPhotoHashingLibraryAlgorithm(b *testing.B) {
 	imagePath := "../images/image for hashing.jpg"
 	imageBytes, err := ioutil.ReadFile(imagePath)
 	if err != nil {

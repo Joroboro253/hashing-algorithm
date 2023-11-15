@@ -10,7 +10,7 @@ var h0, h1, h2, h3, h4 uint32 = 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 
 func chooseFunction(i int, b, c, d uint32) uint32 {
 	switch {
 	case i < 20:
-		// функция выбора, ch (choice)
+		// функция выбора
 		return (b & c) | ((^b) & d)
 	case i < 40:
 		return b ^ c ^ d

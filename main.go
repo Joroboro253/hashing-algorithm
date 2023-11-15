@@ -10,6 +10,7 @@ import (
 
 func main() {
 	photoHashing()
+	textHashing()
 }
 
 func textHashing() {
